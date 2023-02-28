@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BLOG</title>
+</head>
+<body>
+<label align="center"><h1>MAIN BLOG PAGE</h1></label>
+<table border="1" align="center">
+		<!-- <div class="dis-btn" style="margin-left: 400px;"> -->
+	<tr align="center" style="background:whitesmoke;">
+	<td><div class="dis-btn-ele"> <button> <a href="blog.php?page=cat_select" style="color: black; text-decoration: none;">ADD POST</a> </button></div></td>
+	<td><div class="dis-btn-ele"> <button><a href="Category.php?page=grid" style="color: black; text-decoration: none;">SHOW CATEGORY</a> </button></div></td>
+	<td><div class="dis-btn-ele"> <button><a href="Sub_category.php?page=grid" style="color: black; text-decoration: none;">SHOW SUB CATEGORY</a> </button></div></td>
+	<td><div class="dis-btn-ele"> <button><a href="login.php?page=logout" style="color: black; text-decoration: none;">LOGOUT</a> </button></div></td>
+	</tr>
+	</div>
+</table>
+	<table>
+		<tr style="background: whitesmoke;">
+			<th>POST ID</th>
+			<th>TITLE</th>
+			<th>DESCRIPTION</th>
+			<th>IMAGES</th>
+			<th>STATUS</th>
+			<th>CATEGORY</th>
+			<th>SUB CATEGORY</th>
+			<th>DELETE</th>
+		</tr>
+		<?php foreach ($blogs as $blog): ?>
+		<tr style="background: whitesmoke;">
+			<td align="center"><?php echo $blog['post_id'] ?></td>
+			<td align="center"><?php echo $blog['title'] ?></td>
+			<td align="center"><?php echo $blog['discription'] ?></td>
+			<td align="center"> <img src="view/blog/media/<?php echo $blog['image']; ?>" width="50" height="60"> </td>
+			<td align="center"><?php echo $blog['status'] ?></td>
+			<td align="center"><?php echo $blog['category'] ?></td>
+			<td align="center"><?php echo $blog['sub_category'] ?></td>
+			<td align="center"><a href ="blog.php?a=delete&blog_id=<?php echo $product['blog_id']?>">Delete</a></td>
+
+		</tr>
+	<?php endforeach; ?>
+	</table>
+</body>
+</html>

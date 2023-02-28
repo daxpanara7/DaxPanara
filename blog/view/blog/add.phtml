@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BLOG</title>
+</head>
+<body>
+<label align="center"><h1>ADD BLOG PAGE</h1></label>
+<form method="POST" action="blog.php?page=insert" enctype="multipart/form-data" >
+	<table border="1" align="center" style="background:whitesmoke;">
+
+		<tr align="center">
+			<td>TITLE</td>	
+			<td><input type="text" name="blog[title]" value="<?php echo $title; ?>" readonly></td>
+			<input type="hidden" name="blog[user_id]" value="<?php echo $_SESSION['id']; ?>">
+			<input type="hidden" name="blog[category_id]" value="<?php echo $category_id; ?>">
+		</tr>
+		<tr align="center">
+			<td>IMAGE</td>
+			<td><input type="file" name="file"></td>
+		</tr>
+		<tr align="center">
+			<td>DESCRIPTION</td>
+			<td><textarea name="blog[description]"></textarea></td>
+		</tr>
+		<tr align="center">
+			<td>STATUS</td>
+			<td>
+				<select name="blog[status]">
+				<option value="1">ACTIVE</option>
+				<option value="2">INACTIVE</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr align="center">
+			<td>SELECT SUB-CATEGORY</td>
+			<td>
+				<select name="blog[sub_category]" >
+				<?php foreach ($sub_categorys as $sub_category):?>
+				<option value="<?php echo $sub_category['category_id'] ?>"><?php echo $sub_category['name'] ?></option>
+				<?php endforeach; ?>
+				</select>
+			</td>
+		</tr>
+		<tr align="center">
+			<td colspan="2" align="center"><button  type="submit" name="submit" value="submit">Submit</button></td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>

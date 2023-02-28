@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BLOG</title>
+</head>
+<body>
+<label align="center"><h1>ADD CATEGORY PAGE</h1></label>
+	<form method="POST" action="Category.php?page=insert" >
+	<table border="1" align="center" style="background:whitesmoke;">
+		<tr align="center">
+			<td>ADD CATEGORY</td>
+			<td><input type="text" name="category"></td>
+		</tr>
+		<tr align="center">
+		<td>Status</td>
+			<td><select name="status">
+				<option value="1">ACTIVE</option>
+				<option value="2">INACTIVE</option>
+				</select></td>
+		</tr>
+		<tr align="center">
+			<td colspan="2">
+				<button type="submit" name="submit" value="submit">Submit</button>
+			</td>
+	</table>
+	</form>
+
+</body>
+</html>

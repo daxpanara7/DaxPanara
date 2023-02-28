@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BLOG</title>
+</head>
+<body>
+<label align="center"><h1>SELECT CATEGORY PAGE</h1></label>
+<form method="POST" action="blog.php?page=add" >
+	<table class="cat"style="background:whitesmoke;" border="1px" height="30%">
+		<tr align="center">
+			<td>TITLE</td>
+			<td><input type="text" name="title" placeholder="Enter Post Title"></td>
+		</tr>
+
+		<tr align="center">
+			<td>SELECT CATEGORY</td>
+			<td><select name="category_id"></select>
+			<?php foreach ($categorys as $category):?>
+			<option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
+			<?php endforeach; ?>
+			</select></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><button type="submit" name="submit" value="submit">Submit</button></td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BLOG</title>
+</head>
+<body>
+	<label align="center"><h1>SUB CATEGORY PAGE</h1></label>
+<table border="1" align="center">
+		<tr align="center">		
+			<?php if ($_SESSION['role'] == 'admin'):?>
+		<td><div class="dis-btn-ele"> <button><a href="Sub_category.php?page=add" style="color: black; text-decoration: none;">ADD SUB CATEGORY</a></button> </div></td>
+			<?php endif; ?>	
+		<td><div class="dis-btn-ele"><button><a href="blog.php?page=grid" style="color: black; text-decoration: none;">SHOW POST</a> </button></div></td>
+		<td><div class="dis-btn-ele"><button><a href="Category.php?page=grid" style="color: black; text-decoration: none;">SHOW CATEGORY</a></button> </div></td>
+		<td><div class="dis-btn-ele"><button><a href="login.php?page=logout" style="color: black; text-decoration: none;">LOGOUT</a> </button></div></td>
+		</tr>
+	</table>
+
+	<table>
+		<tr style="background:whitesmoke;">
+			<th>SUB CATEGORY ID</th>
+			<th>NAME</th>
+			<th>STATUS</th>
+			<th>TOTAL POST</th>
+		</tr>
+		<?php foreach ($sub_categorys as $sub_category): ?>
+		<tr style="background:whitesmoke;">
+			<td align="center"><?php echo $sub_category['category_id'] ?></td>
+			<td align="center"><?php echo $sub_category['name'] ?></td>
+			<td align="center"><?php echo $sub_category['status'] ?></td>
+			<?php 
+			if ($_SESSION['role'] == 'admin') {
+			$sql = "SELECT * FROM `post` WHERE `category` = '{$sub_category['category_id']}'";
+			}
+			else{
+			$sql = "SELECT * FROM `post` WHERE `sub_category` = '{$sub_category['sub_category_id']}' && `user_id` = '{$_SESSION['id']}'";
+			}
+			$row = $adapter->numRow($sql);  
+			?>
+			<td align="center"><?php echo $row ?></td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+	
+
+</body>
+</html>

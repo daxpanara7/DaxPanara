@@ -1,0 +1,31 @@
+.dis-1{
+	display: block;
+	padding: 50px;
+	margin: 200px;
+	width: 200px;
+}
+
+.dis-1-ele{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+table{
+	margin-top: 25px;
+	width: 100%;
+	border: 1PX solid brown;
+}
+
+tr,th,td{
+	border: 1px solid blaCK;
+	padding: 8px;
+}
+
+.dis-btn{
+	display: flex;
+}
+
+.dis-btn-ele{
+	margin: 10px;
+	padding: 10px;
+}
